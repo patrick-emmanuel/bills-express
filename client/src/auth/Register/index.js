@@ -7,7 +7,7 @@ const SignUp = () => {
 
   return (
     <AuthContext.Consumer>
-      {(register, registerLoading) => (
+      {({ register, registerLoading }) => (
         <RegisterForm
           register={register}
           registerLoading={registerLoading} />

@@ -96,7 +96,7 @@ class App extends Component {
           <Switch>
             <AuthProvider>
               <Route exact path="/login" component={Login} />
-              <Route exact path="/signUp" component={SignUp} />
+              <Route exact path="/register" component={SignUp} />
               <PrivateRoute exact path="/" component={BillList} />
               <PrivateRoute exact path="/bills/create" component={CreateBill} />
               <PrivateRoute exact path="/bills/:id" component={BillDetails} />
