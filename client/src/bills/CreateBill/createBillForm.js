@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useFormInput } from '../../utils/customHooks';
 
 export default ({ createBill }) => {
@@ -20,27 +19,27 @@ export default ({ createBill }) => {
   }
 
   return (
-    <Container>
-      <Form onSubmit={handleCreateBill}>
-        <FormGroup>
-          <Label for="type">Type</Label>
-          <Input type="select" name="type" {...type}>
+    <div className="container">
+      <form onSubmit={handleCreateBill}>
+        <div>
+          <lable for="type">Type</lable>
+          <select type="select" name="type" {...type}>
             <option value="WATER">Water</option>
             <option value="ELECTRICITY">Electricity</option>
             <option value="WASTE">Waste</option>
             <option value="INTERNET">Internet</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label for="amount">Amount</Label>
-          <Input type="number" min="100" name="amount" {...amount} />
-        </FormGroup>
-        <FormGroup>
-          <Label for="date">Date</Label>
-          <Input type="date" name="date" {...date} />
-        </FormGroup>
-        <Button>Submit</Button>
-      </Form>
-    </Container>
+          </select>
+        </div>
+        <div>
+          <label for="amount">Amount</label>
+          <input type="number" min="100" name="amount" {...amount} />
+        </div>
+        <div>
+          <label for="date">Date</label>
+          <input type="date" name="date" {...date} />
+        </div>
+        <button>Submit</button>
+      </form>
+    </div>
   );
 }

@@ -6,6 +6,10 @@ export const setAuthToken = token => {
   localStorage.setItem('token', token);
 }
 
+export const removeAuthToken = () => {
+  localStorage.removeItem('token');
+}
+
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route

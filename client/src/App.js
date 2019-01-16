@@ -11,12 +11,13 @@ import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './auth/Login';
-import SignUp from './auth/SignUp';
+import SignUp from './auth/Register';
 import CreateBill from './bills/CreateBill';
 import BillDetails from './bills/BillDetails';
 import BillList from './bills/ListBills';
 
-import { PrivateRoute } from './utils/auth';
+import AuthProvider from './auth/AuthProvider';
+import { PrivateRoute, removeAuthToken } from './utils/auth';
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:8000/graphql',
@@ -64,7 +65,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       console.log('GraphQL error', message);
 
       if (message === 'NOT_AUTHENTICATED') {
-        //signOut(client);
+        removeAuthToken();
       }
     });
   }
@@ -73,7 +74,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     console.log('Network error', networkError);
 
     if (networkError.statusCode === 401) {
-      //signOut(client);
+      removeAuthToken();
     }
   }
 });
@@ -93,11 +94,13 @@ class App extends Component {
       <ApolloProvider client={client}>
         <Router>
           <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signUp" component={SignUp} />
-            <PrivateRoute exact path="/bills/create" component={CreateBill} />
-            <PrivateRoute exact path="/bills" component={BillList} />
-            <PrivateRoute exact path="/bills/:id" component={BillDetails} />
+            <AuthProvider>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signUp" component={SignUp} />
+              <PrivateRoute exact path="/" component={BillList} />
+              <PrivateRoute exact path="/bills/create" component={CreateBill} />
+              <PrivateRoute exact path="/bills/:id" component={BillDetails} />
+            </AuthProvider>
           </Switch>
         </Router>
       </ApolloProvider>
