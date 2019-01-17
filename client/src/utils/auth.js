@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 
 export const setAuthToken = token => {
@@ -16,7 +17,10 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={props =>
         localStorage.getItem('token') ? (
-          <Component {...props} />
+          <>
+            <NavBar />
+            <Component {...props} />
+          </>
         ) : (
             <Redirect
               to={{

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo';
 import { GET_BILL } from './queries';
+import BillDetails from './BillDetails';
 
 export default ({ match }) => {
   let id = decodeURIComponent(match.params.id);
@@ -13,11 +14,7 @@ export default ({ match }) => {
         if (loading) return 'loading...'
         if (error) return `${error}`
         return (
-          <div>
-            <p>{data.bill.type}</p>
-            <p>{data.bill.amount}</p>
-            <p>{data.bill.date}</p>
-          </div>
+          <BillDetails bill={data.bill} />
         );
       }}
     </Query>

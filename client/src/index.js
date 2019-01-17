@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
 import './app.css';
 import * as serviceWorker from './serviceWorker';
 
-library.add(faEnvelope, faKey)
+library.add(faEnvelope, faKey, faCalendarAlt)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -3241,6 +3241,10 @@ table {
   margin: 8rem;
 }
 
+.m-64 {
+  margin: 16rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -3387,6 +3391,16 @@ table {
 .mx-32 {
   margin-left: 8rem;
   margin-right: 8rem;
+}
+
+.my-64 {
+  margin-top: 16rem;
+  margin-bottom: 16rem;
+}
+
+.mx-64 {
+  margin-left: 16rem;
+  margin-right: 16rem;
 }
 
 .my-auto {
@@ -3633,6 +3647,22 @@ table {
   margin-left: 8rem;
 }
 
+.mt-64 {
+  margin-top: 16rem;
+}
+
+.mr-64 {
+  margin-right: 16rem;
+}
+
+.mb-64 {
+  margin-bottom: 16rem;
+}
+
+.ml-64 {
+  margin-left: 16rem;
+}
+
 .mt-auto {
   margin-top: auto;
 }
@@ -3789,6 +3819,10 @@ table {
   margin: -8rem;
 }
 
+.-m-64 {
+  margin: -16rem;
+}
+
 .-m-px {
   margin: -1px;
 }
@@ -3931,6 +3965,16 @@ table {
 .-mx-32 {
   margin-left: -8rem;
   margin-right: -8rem;
+}
+
+.-my-64 {
+  margin-top: -16rem;
+  margin-bottom: -16rem;
+}
+
+.-mx-64 {
+  margin-left: -16rem;
+  margin-right: -16rem;
 }
 
 .-my-px {
@@ -4165,6 +4209,22 @@ table {
 
 .-ml-32 {
   margin-left: -8rem;
+}
+
+.-mt-64 {
+  margin-top: -16rem;
+}
+
+.-mr-64 {
+  margin-right: -16rem;
+}
+
+.-mb-64 {
+  margin-bottom: -16rem;
+}
+
+.-ml-64 {
+  margin-left: -16rem;
 }
 
 .-mt-px {
@@ -8875,6 +8935,10 @@ html {
     margin: 8rem;
   }
 
+  .sm\:m-64 {
+    margin: 16rem;
+  }
+
   .sm\:m-auto {
     margin: auto;
   }
@@ -9021,6 +9085,16 @@ html {
   .sm\:mx-32 {
     margin-left: 8rem;
     margin-right: 8rem;
+  }
+
+  .sm\:my-64 {
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+  }
+
+  .sm\:mx-64 {
+    margin-left: 16rem;
+    margin-right: 16rem;
   }
 
   .sm\:my-auto {
@@ -9267,6 +9341,22 @@ html {
     margin-left: 8rem;
   }
 
+  .sm\:mt-64 {
+    margin-top: 16rem;
+  }
+
+  .sm\:mr-64 {
+    margin-right: 16rem;
+  }
+
+  .sm\:mb-64 {
+    margin-bottom: 16rem;
+  }
+
+  .sm\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .sm\:mt-auto {
     margin-top: auto;
   }
@@ -9423,6 +9513,10 @@ html {
     margin: -8rem;
   }
 
+  .sm\:-m-64 {
+    margin: -16rem;
+  }
+
   .sm\:-m-px {
     margin: -1px;
   }
@@ -9565,6 +9659,16 @@ html {
   .sm\:-mx-32 {
     margin-left: -8rem;
     margin-right: -8rem;
+  }
+
+  .sm\:-my-64 {
+    margin-top: -16rem;
+    margin-bottom: -16rem;
+  }
+
+  .sm\:-mx-64 {
+    margin-left: -16rem;
+    margin-right: -16rem;
   }
 
   .sm\:-my-px {
@@ -9799,6 +9903,22 @@ html {
 
   .sm\:-ml-32 {
     margin-left: -8rem;
+  }
+
+  .sm\:-mt-64 {
+    margin-top: -16rem;
+  }
+
+  .sm\:-mr-64 {
+    margin-right: -16rem;
+  }
+
+  .sm\:-mb-64 {
+    margin-bottom: -16rem;
+  }
+
+  .sm\:-ml-64 {
+    margin-left: -16rem;
   }
 
   .sm\:-mt-px {
@@ -14474,6 +14594,10 @@ html {
     margin: 8rem;
   }
 
+  .md\:m-64 {
+    margin: 16rem;
+  }
+
   .md\:m-auto {
     margin: auto;
   }
@@ -14620,6 +14744,16 @@ html {
   .md\:mx-32 {
     margin-left: 8rem;
     margin-right: 8rem;
+  }
+
+  .md\:my-64 {
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+  }
+
+  .md\:mx-64 {
+    margin-left: 16rem;
+    margin-right: 16rem;
   }
 
   .md\:my-auto {
@@ -14866,6 +15000,22 @@ html {
     margin-left: 8rem;
   }
 
+  .md\:mt-64 {
+    margin-top: 16rem;
+  }
+
+  .md\:mr-64 {
+    margin-right: 16rem;
+  }
+
+  .md\:mb-64 {
+    margin-bottom: 16rem;
+  }
+
+  .md\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .md\:mt-auto {
     margin-top: auto;
   }
@@ -15022,6 +15172,10 @@ html {
     margin: -8rem;
   }
 
+  .md\:-m-64 {
+    margin: -16rem;
+  }
+
   .md\:-m-px {
     margin: -1px;
   }
@@ -15164,6 +15318,16 @@ html {
   .md\:-mx-32 {
     margin-left: -8rem;
     margin-right: -8rem;
+  }
+
+  .md\:-my-64 {
+    margin-top: -16rem;
+    margin-bottom: -16rem;
+  }
+
+  .md\:-mx-64 {
+    margin-left: -16rem;
+    margin-right: -16rem;
   }
 
   .md\:-my-px {
@@ -15398,6 +15562,22 @@ html {
 
   .md\:-ml-32 {
     margin-left: -8rem;
+  }
+
+  .md\:-mt-64 {
+    margin-top: -16rem;
+  }
+
+  .md\:-mr-64 {
+    margin-right: -16rem;
+  }
+
+  .md\:-mb-64 {
+    margin-bottom: -16rem;
+  }
+
+  .md\:-ml-64 {
+    margin-left: -16rem;
   }
 
   .md\:-mt-px {
@@ -20073,6 +20253,10 @@ html {
     margin: 8rem;
   }
 
+  .lg\:m-64 {
+    margin: 16rem;
+  }
+
   .lg\:m-auto {
     margin: auto;
   }
@@ -20219,6 +20403,16 @@ html {
   .lg\:mx-32 {
     margin-left: 8rem;
     margin-right: 8rem;
+  }
+
+  .lg\:my-64 {
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+  }
+
+  .lg\:mx-64 {
+    margin-left: 16rem;
+    margin-right: 16rem;
   }
 
   .lg\:my-auto {
@@ -20465,6 +20659,22 @@ html {
     margin-left: 8rem;
   }
 
+  .lg\:mt-64 {
+    margin-top: 16rem;
+  }
+
+  .lg\:mr-64 {
+    margin-right: 16rem;
+  }
+
+  .lg\:mb-64 {
+    margin-bottom: 16rem;
+  }
+
+  .lg\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .lg\:mt-auto {
     margin-top: auto;
   }
@@ -20621,6 +20831,10 @@ html {
     margin: -8rem;
   }
 
+  .lg\:-m-64 {
+    margin: -16rem;
+  }
+
   .lg\:-m-px {
     margin: -1px;
   }
@@ -20763,6 +20977,16 @@ html {
   .lg\:-mx-32 {
     margin-left: -8rem;
     margin-right: -8rem;
+  }
+
+  .lg\:-my-64 {
+    margin-top: -16rem;
+    margin-bottom: -16rem;
+  }
+
+  .lg\:-mx-64 {
+    margin-left: -16rem;
+    margin-right: -16rem;
   }
 
   .lg\:-my-px {
@@ -20997,6 +21221,22 @@ html {
 
   .lg\:-ml-32 {
     margin-left: -8rem;
+  }
+
+  .lg\:-mt-64 {
+    margin-top: -16rem;
+  }
+
+  .lg\:-mr-64 {
+    margin-right: -16rem;
+  }
+
+  .lg\:-mb-64 {
+    margin-bottom: -16rem;
+  }
+
+  .lg\:-ml-64 {
+    margin-left: -16rem;
   }
 
   .lg\:-mt-px {
@@ -25672,6 +25912,10 @@ html {
     margin: 8rem;
   }
 
+  .xl\:m-64 {
+    margin: 16rem;
+  }
+
   .xl\:m-auto {
     margin: auto;
   }
@@ -25818,6 +26062,16 @@ html {
   .xl\:mx-32 {
     margin-left: 8rem;
     margin-right: 8rem;
+  }
+
+  .xl\:my-64 {
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+  }
+
+  .xl\:mx-64 {
+    margin-left: 16rem;
+    margin-right: 16rem;
   }
 
   .xl\:my-auto {
@@ -26064,6 +26318,22 @@ html {
     margin-left: 8rem;
   }
 
+  .xl\:mt-64 {
+    margin-top: 16rem;
+  }
+
+  .xl\:mr-64 {
+    margin-right: 16rem;
+  }
+
+  .xl\:mb-64 {
+    margin-bottom: 16rem;
+  }
+
+  .xl\:ml-64 {
+    margin-left: 16rem;
+  }
+
   .xl\:mt-auto {
     margin-top: auto;
   }
@@ -26220,6 +26490,10 @@ html {
     margin: -8rem;
   }
 
+  .xl\:-m-64 {
+    margin: -16rem;
+  }
+
   .xl\:-m-px {
     margin: -1px;
   }
@@ -26362,6 +26636,16 @@ html {
   .xl\:-mx-32 {
     margin-left: -8rem;
     margin-right: -8rem;
+  }
+
+  .xl\:-my-64 {
+    margin-top: -16rem;
+    margin-bottom: -16rem;
+  }
+
+  .xl\:-mx-64 {
+    margin-left: -16rem;
+    margin-right: -16rem;
   }
 
   .xl\:-my-px {
@@ -26596,6 +26880,22 @@ html {
 
   .xl\:-ml-32 {
     margin-left: -8rem;
+  }
+
+  .xl\:-mt-64 {
+    margin-top: -16rem;
+  }
+
+  .xl\:-mr-64 {
+    margin-right: -16rem;
+  }
+
+  .xl\:-mb-64 {
+    margin-bottom: -16rem;
+  }
+
+  .xl\:-ml-64 {
+    margin-left: -16rem;
   }
 
   .xl\:-mt-px {

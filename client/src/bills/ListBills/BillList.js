@@ -1,14 +1,10 @@
 import React from 'react';
+import BillItem from './BillItem';
 
 export default ({ bills }) => {
   return (
-    bills.map(bill => <BillItem key={bill.id} bill={bill} />)
+    <div className="flex justify-center flex-col mt-6 mb-12">
+      {bills.map(bill => <BillItem key={bill.id} bill={bill} />)}
+    </div>
   )
 }
-
-const BillItem = ({ bill }) => (
-  <div>
-    <p>{bill.type}</p>
-    <p>{bill.amount}</p>
-  </div>
-)
