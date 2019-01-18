@@ -19,7 +19,9 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
         localStorage.getItem('token') ? (
           <>
             <NavBar />
-            <Component {...props} />
+            <div className="mt-10 md:mx-64 sm:mx-16 mx-6">
+              <Component {...props} />
+            </div>
           </>
         ) : (
             <Redirect

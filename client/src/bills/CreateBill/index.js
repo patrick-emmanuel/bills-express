@@ -22,9 +22,11 @@ const CreateBill = ({ history }) => {
       mutation={CREATE_BILL}
       onCompleted={onCompleted}
       onError={onError}>
-      {(createBill, { data }) => {
+      {(createBill, { data, loading }) => {
         return (
-          <CreateBillForm createBill={createBill} />
+          <CreateBillForm
+            createBill={createBill}
+            loading={loading} />
         );
       }}
     </Mutation>

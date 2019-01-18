@@ -9,7 +9,7 @@ export default ({ bill }) => {
 
   const billType = bill.type.toLowerCase();
 
-  const cardStyle = classNames('mt-10 md:mx-64 sm:mx-16 mx-6 px-8 py-6 rounded border-solid border-t-4 shadow', {
+  const cardStyle = classNames('px-8 py-6 rounded border-solid border-t-4 shadow', {
     'border-teal-lighter': billType === "water",
     'border-green-lighter': billType === "electricity",
     'border-orange-lighter': billType === "waste",

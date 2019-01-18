@@ -6,7 +6,7 @@ import { GET_PAGINATED_BILLS } from './queries';
 import MoreButton from '../../components/MoreButton';
 
 export default () => {
-  const limit = 10
+  const limit = 3
   return (
     <Query
       variables={{ limit }}
@@ -24,7 +24,7 @@ export default () => {
               <MoreButton
                 limit={limit}
                 pageInfo={pageInfo}
-                fetchMore={fetchMore} />
+                fetchMore={fetchMore}>More</MoreButton>
             )}
           </>
         )

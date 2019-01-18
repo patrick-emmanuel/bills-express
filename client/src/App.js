@@ -93,15 +93,15 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <Router>
-          <Switch>
-            <AuthProvider>
+          <AuthProvider>
+            <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={SignUp} />
               <PrivateRoute exact path="/" component={BillList} />
               <PrivateRoute exact path="/bills/create" component={CreateBill} />
               <PrivateRoute exact path="/bills/:id" component={BillDetails} />
-            </AuthProvider>
-          </Switch>
+            </Switch>
+          </AuthProvider>
         </Router>
       </ApolloProvider>
     );

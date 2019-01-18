@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "11.6.0"
+    "node": "10.10.0"
   },
   "scripts": {
     "start": "nodemon --exec babel-node server/index.js",

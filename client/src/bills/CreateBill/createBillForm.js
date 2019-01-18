@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormInput } from '../../utils/customHooks';
 
-export default ({ createBill }) => {
+export default ({ createBill, loading }) => {
 
   const type = useFormInput('WATER');
   const amount = useFormInput('');
@@ -19,26 +19,26 @@ export default ({ createBill }) => {
   }
 
   return (
-    <div className="container">
+    <div>
       <form onSubmit={handleCreateBill}>
         <div>
-          <lable for="type">Type</lable>
-          <select type="select" name="type" {...type}>
+          <label className="block mb-4 text-grey-darker inline-block font-bold">Type</label>
+          <select type="select" name="type" {...type} className="appearance-none bg-transparent border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline">
             <option value="WATER">Water</option>
             <option value="ELECTRICITY">Electricity</option>
             <option value="WASTE">Waste</option>
             <option value="INTERNET">Internet</option>
           </select>
         </div>
-        <div>
-          <label for="amount">Amount</label>
-          <input type="number" min="100" name="amount" {...amount} />
+        <div className="my-8">
+          <label className="block mb-4 text-grey-darker inline-block font-bold">Amount</label>
+          <input type="amount" min="100" name="amount" {...amount} className="appearance-none border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" />
         </div>
-        <div>
-          <label for="date">Date</label>
-          <input type="date" name="date" {...date} />
+        <div className="my-8">
+          <label className="block mb-4 text-grey-darker inline-block font-bold">Date</label>
+          <input type="date" name="date" {...date} className="appearance-none border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" />
         </div>
-        <button>Submit</button>
+        <button disabled={loading} className="bg-teal rounded py-4 font-bold px-6 text-white">Submit</button>
       </form>
     </div>
   );
