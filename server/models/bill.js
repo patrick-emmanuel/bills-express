@@ -28,6 +28,10 @@ const bill = (sequelize, DataTypes) => {
       validate: {
         notEmpty: true,
       },
+    },
+    paid: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   });
 

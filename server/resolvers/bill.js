@@ -2,14 +2,16 @@ import Sequelize from 'sequelize';
 import { combineResolvers } from 'graphql-resolvers';
 import { isAuthenticated } from './authorization';
 
+import { EVENTS } from '../subscription';
 import { fromCursorHash, toCursorHash } from './index';
 
 export default {
   Query: {
-    bills: async (parent, { cursor, limit = 100 }, { models }) => {
+    bills: async (parent, { cursor, limit = 100 }, { models, me }) => {
       const cursorOptions = cursor
         ? {
           where: {
+            userId: me.id,
             createdAt: {
               [Sequelize.Op.lt]: fromCursorHash(cursor),
             },
@@ -55,6 +57,28 @@ export default {
         });
         return bill;
       },
+    ),
+    payBill: combineResolvers(
+      isAuthenticated,
+      async (
+        parent,
+        { id },
+        { models },
+      ) => {
+        const bill = await models.Bill.findByPk(id);
+        const paidBill = await bill.update({
+          paid: !bill.paid
+        });
+        pubsub.publish(EVENTS.BILL.PAID, {
+          billPaid: { paidBill }
+        })
+        return paidBill;
+      },
     )
-  }
+  },
+  Subscription: {
+    billPaid: {
+      subscribe: () => pubsub.asyncIterator(EVENTS.BILL.PAID),
+    },
+  },
 }

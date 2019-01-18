@@ -27,6 +27,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "apollo-link-ws": "^1.0.12",
     "apollo-server": "^2.2.3",
     "apollo-server-express": "^2.2.3",
     "bcrypt": "^3.0.2",
@@ -41,6 +42,7 @@
     "pg": "^7.6.1",
     "sequelize": "^4.41.2",
     "sequelize-cli": "^5.4.0",
+    "subscriptions-transport-ws": "^0.9.15",
     "uuid": "^3.3.2"
   }
 }

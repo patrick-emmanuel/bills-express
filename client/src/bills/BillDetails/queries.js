@@ -6,6 +6,7 @@ export const GET_BILL = gql`
       type
       amount
       date
+      paid
     }
   }
 `;

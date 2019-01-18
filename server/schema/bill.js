@@ -14,6 +14,10 @@ export default gql`
     ): Bill!
   }
 
+  extend type Mutation {
+    payBill(id: ID!): Bill!
+  }
+
   type BillConnection {
     edges: [Bill!]!
     pageInfo: PageInfo!
@@ -24,11 +28,24 @@ export default gql`
     endCursor: String!
   }
 
+  extend type Subscription {
+    billCreated: BillCreated!
+  }
+
+  extend type Subscription {
+    billPaid(id ID!): Bill!
+  }
+
+  type BillCreated {
+    bill: Bill!
+  }
+
   type Bill {
     id: ID!
     amount: Int!
     date: String!
     type: TypeEnum!
+    paid: Boolean!
   }
 
   enum TypeEnum {
@@ -36,13 +53,5 @@ export default gql`
     WASTE,
     WATER,
     INTERNET
-  }
-
-  extend type Subscription {
-    billCreated: BillCreated!
-  }
-
-  type BillCreated {
-    bill: Bill!
   }
 `;

@@ -9,6 +9,7 @@ export const GET_PAGINATED_BILLS = gql`
         type
         amount
         date
+        paid
       }
       pageInfo {
         hasNextPage

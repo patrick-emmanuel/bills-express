@@ -9,7 +9,7 @@ import { formatMoney } from '../../utils/format';
 export default ({ bill }) => {
   const billType = bill.type.toLowerCase();
 
-  const cardStyle = classNames('mt-10 px-8 py-6 rounded border-solid border-t-4 shadow', {
+  const cardStyle = classNames('mt-10 px-8 py-6 border-solid border-t-4 shadow', {
     'border-teal-lighter': billType === "water",
     'border-green-lighter': billType === "electricity",
     'border-orange-lighter': billType === "waste",
@@ -27,7 +27,6 @@ export default ({ bill }) => {
     <div className={cardStyle}>
       <div className="flex justify-between">
         <p>
-
           <FontAwesomeIcon icon="calendar-alt" />
           <span class="pl-2">
             <Moment unix format="DD MMM YYYY">{bill.date}</Moment>
