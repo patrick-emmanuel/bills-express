@@ -1,2 +1,2 @@
 export const CREATED = 'CREATED';
-export const PAID = 'PAID';
+export const PAID = 'BILL_PAID';

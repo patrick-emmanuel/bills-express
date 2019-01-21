@@ -18,3 +18,19 @@ export const GET_PAGINATED_BILLS = gql`
     }
   }
 `;
+
+export const PAY_BILL = gql`
+  mutation payBill($id: ID!){
+    payBill(id: $id){
+      paid
+    }
+  }
+`;
+
+export const PAY_BILL_SUBSCRIPTION = gql`
+  subscription billPaid {
+    billPaid{
+      paid
+    }
+  }
+`;

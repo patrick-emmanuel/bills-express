@@ -33,7 +33,7 @@ export default gql`
   }
 
   extend type Subscription {
-    billPaid(id ID!): Bill!
+    billPaid: Bill!
   }
 
   type BillCreated {

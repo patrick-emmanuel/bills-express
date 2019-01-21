@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import { combineResolvers } from 'graphql-resolvers';
 import { isAuthenticated } from './authorization';
 
-import { EVENTS } from '../subscription';
+import pubsub, { EVENTS } from '../subscription';
 import { fromCursorHash, toCursorHash } from './index';
 
 export default {
