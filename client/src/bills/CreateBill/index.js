@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mutation } from "react-apollo";
 import CreateBillForm from './createBillForm';
-import { CREATE_BILL } from './queries';
+import { CREATE_BILL } from '../mutations';
 
 const CreateBill = ({ history }) => {
 

@@ -15,6 +15,7 @@ import SignUp from './auth/Register';
 import CreateBill from './bills/CreateBill';
 import BillDetails from './bills/BillDetails';
 import BillList from './bills/ListBills';
+import Charts from './bills/Charts';
 
 import AuthProvider from './auth/AuthProvider';
 import { PrivateRoute, removeAuthToken } from './utils/auth';
@@ -99,6 +100,7 @@ class App extends Component {
               <Route exact path="/register" component={SignUp} />
               <PrivateRoute exact path="/" component={BillList} />
               <PrivateRoute exact path="/bills/create" component={CreateBill} />
+              <PrivateRoute exact path="/bills/charts" component={Charts} />
               <PrivateRoute exact path="/bills/:id" component={BillDetails} />
             </Switch>
           </AuthProvider>

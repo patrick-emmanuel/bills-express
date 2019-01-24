@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import classNames from 'classnames';
@@ -18,7 +18,7 @@ export default ({
   });
 
   return (
-    <div className="bg-grey-lighter border-teal-lighter px-8 py-6 border-solid mb-10 border-t-4 shadow">
+    <div className="bg-grey-lighter border-grey-light px-8 py-6 border-solid mb-10 rounded shadow">
       <div>
         <p>
           <Moment unix format="MMM YYYY">{bill.date}</Moment>

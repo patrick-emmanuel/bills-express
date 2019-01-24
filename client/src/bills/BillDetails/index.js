@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query } from 'react-apollo';
-import { GET_BILL } from './queries';
+import { GET_BILL } from '../queries';
 import BillDetails from './BillDetails';
 
 export default ({ match }) => {

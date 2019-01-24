@@ -4,6 +4,8 @@ export default gql`
   extend type Query {
     bills(cursor: String, limit: Int): BillConnection!
     bill(id: ID!): Bill
+    billsGroupByType: BillGroupByTypeConnection!
+    billsGroupByPaid: BillGroupByPaidConnection!
   }
 
   extend type Mutation {
@@ -12,9 +14,6 @@ export default gql`
       date: Date!
       type: TypeEnum!
     ): Bill!
-  }
-
-  extend type Mutation {
     payBill(id: ID!): Bill!
   }
 
@@ -46,6 +45,24 @@ export default gql`
     date: String!
     type: TypeEnum!
     paid: Boolean!
+  }
+
+  type BillGroupByPaidConnection{
+    edges: [BillGroupByPaid!]!
+  }
+
+  type BillGroupByPaid {
+    total: Int!
+    paid: Boolean!
+  }
+
+  type BillGroupByTypeConnection{
+    edges: [BillGroupByType!]!
+  }
+
+  type BillGroupByType {
+    total: Int!
+    type: TypeEnum!
   }
 
   enum TypeEnum {

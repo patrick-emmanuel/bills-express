@@ -2,7 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 
 import BillsList from './BillList';
-import { GET_PAGINATED_BILLS } from './queries';
+import { GET_PAGINATED_BILLS } from '../queries';
 import MoreButton from '../../components/MoreButton';
 
 export default () => {

@@ -40,6 +40,39 @@ export default {
     bill: async (parent, { id }, { models }) => {
       return await models.Bill.findByPk(id);
     },
+    billsGroupByType: async (parent, args, { models, me }) => {
+      const bills = await models.Bill.findAll({
+        raw: true,
+        where: {
+          userId: me.id
+        },
+        attributes: [
+          'type',
+          [Sequelize.fn('SUM', Sequelize.col('amount')), 'total']
+        ],
+        group: ['type']
+      });
+      return {
+        edges: bills
+      }
+    },
+    billsGroupByPaid: async (parent, args, { models, me }) => {
+      const bills = await models.Bill.findAll({
+        raw: true,
+        where: {
+          userId: me.id
+        },
+        attributes: [
+          'paid',
+          [Sequelize.fn('SUM', Sequelize.col('amount')), 'total']
+        ],
+        group: 'paid'
+      });
+      console.log(bills);
+      return {
+        edges: bills
+      }
+    },
   },
   Mutation: {
     createBill: combineResolvers(

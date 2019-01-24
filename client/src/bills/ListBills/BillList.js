@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BillItem from './BillItem';
 import { Mutation } from "react-apollo";
 
-import { PAY_BILL } from './queries';
+import { PAY_BILL } from '../queries';
 
 export default ({ bills }) => (
   <div className="flex justify-center flex-col mt-6">

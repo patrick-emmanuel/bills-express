@@ -32,7 +32,7 @@ export default ({ createBill, loading }) => {
         </div>
         <div className="my-8">
           <label className="block mb-4 text-grey-darker inline-block font-bold">Amount</label>
-          <input type="amount" min="100" name="amount" {...amount} className="appearance-none border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" />
+          <input type="number" min="100" name="amount" {...amount} className="appearance-none border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" />
         </div>
         <div className="my-8">
           <label className="block mb-4 text-grey-darker inline-block font-bold">Date</label>
