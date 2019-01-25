@@ -11,13 +11,16 @@ export default {
       const cursorOptions = cursor
         ? {
           where: {
-            userId: me.id,
             createdAt: {
               [Sequelize.Op.lt]: fromCursorHash(cursor),
             },
           },
         }
-        : {};
+        : {
+          where: {
+            userId: me.id
+          }
+        }
 
       const bills = await models.Bill.findAll({
         order: [['createdAt', 'DESC']],
@@ -31,7 +34,7 @@ export default {
         edges,
         pageInfo: {
           hasNextPage,
-          endCursor: toCursorHash(
+          endCursor: edges.length > 0 && toCursorHash(
             edges[edges.length - 1].createdAt.toString(),
           ),
         },

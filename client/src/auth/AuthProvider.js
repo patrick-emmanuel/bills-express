@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import LoginProvider from './Login/LoginProvider';
-import { setAuthToken, removeAuthToken } from '../utils/auth';
-import RegisterProvider from './Register/RegisterProvider';
+
+import LoginProvider from './containers/LoginProvider';
+import RegisterProvider from './containers/RegisterProvider';
+import VerifyTokenProvider from './containers/VerifyTokenProvider';
+
+import {
+  setAuthToken,
+  removeAuthToken,
+  getToken
+} from '../utils/auth';
 
 export const AuthContext = React.createContext({
   login: null,
@@ -16,21 +23,42 @@ export const AuthContext = React.createContext({
 
 const AuthProviderOperations = ({ children, history }) => {
 
+  const [me, setMe] = useState(null);
+
   const onCompleted = data => {
-    setAuthToken(data.signIn.token);
+    const { me: loggedInUser, token } = data.signIn;
+    setAuthToken(token);
+    setMe(loggedInUser);
     history.push('/');
   }
 
+  const onError = () => {
+    logout();
+  }
+
+  const logout = () => {
+    removeAuthToken();
+    history.push('/login');
+  }
+
   return (
-    <LoginProvider onCompleted={onCompleted}>
+    <LoginProvider onCompleted={onCompleted} onError={onError}>
       {login => (
-        <RegisterProvider onRegisterCompleted={onCompleted}>
+        <RegisterProvider onRegisterCompleted={onCompleted} onError={onError}>
           {register => (
-            <AuthProvider
-              login={login}
-              register={register}>
-              {children}
-            </AuthProvider>
+            <VerifyTokenProvider onError={onError}>
+              {verifyUser => (
+                <AuthProvider
+                  logout={logout}
+                  login={login}
+                  register={register}
+                  verifyUser={verifyUser}
+                  setMe={setMe}
+                  me={me}>
+                  {children}
+                </AuthProvider>
+              )}
+            </VerifyTokenProvider>
           )}
         </RegisterProvider>
       )}
@@ -38,11 +66,26 @@ const AuthProviderOperations = ({ children, history }) => {
   )
 }
 
-const AuthProvider = ({ login, register, children }) => {
+const AuthProvider = ({
+  login,
+  logout,
+  register,
+  verifyUser,
+  me,
+  setMe,
+  children
+}) => {
 
-  const logout = () => {
-    removeAuthToken();
-  }
+  useEffect(() => {
+    const token = getToken();
+    if (verifyUser.data && verifyUser.data.verifyUser) {
+      setMe(verifyUser.data.verifyUser)
+    }
+    const userToken = login.data ? login.data.signIn.token : token
+    if (userToken && !me) {
+      verifyUser.mutate({ variables: { token: userToken } });
+    }
+  });
 
   return (
     <AuthContext.Provider value={{
@@ -50,6 +93,8 @@ const AuthProvider = ({ login, register, children }) => {
       register: register.mutate,
       loginLoading: login.loading,
       registerLoading: register.loading,
+      verifyAuthLoading: verifyUser.loading,
+      me,
       logout
     }}>
       {children}

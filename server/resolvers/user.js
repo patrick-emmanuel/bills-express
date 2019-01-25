@@ -39,7 +39,7 @@ export default {
         password,
       });
 
-      return { token: createToken(user, secret, '1d') };
+      return { token: createToken(user, secret, '1d'), me: user };
     },
 
     signIn: async (
@@ -52,7 +52,7 @@ export default {
 
       if (!user) {
         throw new UserInputError(
-          'No user found with this login credentials.',
+          'No user found with this email address.',
         );
       }
 
@@ -62,7 +62,7 @@ export default {
         throw new AuthenticationError('Invalid password.');
       }
 
-      return { token: createToken(user, secret, '1d') };
+      return { token: createToken(user, secret, '1d'), me: user };
     },
 
     updateUser: combineResolvers(
@@ -72,6 +72,15 @@ export default {
         return await user.update({ email });
       },
     ),
+    verifyUser: async (parent, { token }) => {
+      try {
+        return await jwt.verify(token, process.env.SECRET);
+      } catch (e) {
+        throw new AuthenticationError(
+          'Invalid user token',
+        );
+      }
+    },
 
     deleteUser: combineResolvers(
       isAdmin,

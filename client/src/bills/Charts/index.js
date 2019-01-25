@@ -7,25 +7,32 @@ import PaidAmountChart from './PaidAmountChart';
 
 export default (params) => (
 
+  //Look into onError
   <Query query={GET_BILLS_GROUP_BY_TYPE}>
-    {({ data: billsTypeData, loading: billsTypeLoading, error }) => (
-      <Query query={GET_BILLS_GROUP_BY_PAID}>
-        {({ data: billsPaidData, loading: billsPaidLoading, error }) => {
-          if (billsTypeData && !billsTypeLoading
-            && billsPaidData && !billsPaidLoading
-          ) {
-            const { edges: billsTypeEdges } = billsTypeData.billsGroupByType;
-            const { edges: billsPaidEdges } = billsPaidData.billsGroupByPaid;
-            return (
-              <>
-                <TypeAmountChart edges={billsTypeEdges} />
-                <PaidAmountChart edges={billsPaidEdges} />
-              </>
-            )
-          }
-          return null;
-        }}
-      </Query>
-    )}
+    {({
+      data: billsTypeData,
+      loading: billsTypeLoading,
+    }) => (
+        <Query query={GET_BILLS_GROUP_BY_PAID}>
+          {({
+            data: billsPaidData,
+            loading: billsPaidLoading,
+          }) => {
+            if (billsTypeData && !billsTypeLoading
+              && billsPaidData && !billsPaidLoading
+            ) {
+              const { edges: billsTypeEdges } = billsTypeData.billsGroupByType;
+              const { edges: billsPaidEdges } = billsPaidData.billsGroupByPaid;
+              return (
+                <>
+                  <TypeAmountChart edges={billsTypeEdges} />
+                  <PaidAmountChart edges={billsPaidEdges} />
+                </>
+              )
+            }
+            return null;
+          }}
+        </Query>
+      )}
   </Query>
 );

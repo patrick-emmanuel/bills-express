@@ -11,15 +11,16 @@ export default gql`
     signUp(
       email: String!
       password: String!
-    ): Token!
-
-    signIn(login: String!, password: String!): Token!
+    ): Auth!
+    verifyUser(token: String!): User!
+    signIn(login: String!, password: String!): Auth!
     updateUser(email: String!): User!
     deleteUser(id: ID!): Boolean!
   }
 
-  type Token {
+  type Auth {
     token: String!
+    me: User!
   }
 
   type User {

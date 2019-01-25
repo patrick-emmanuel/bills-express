@@ -1,15 +1,15 @@
 import React from 'react';
 import { Mutation } from "react-apollo";
-import { REGISTER } from './queries';
+import { LOGIN } from '../queries';
 
 export default ({ children, onCompleted, onError }) => {
   return (
     <Mutation
-      mutation={REGISTER}
+      mutation={LOGIN}
       onCompleted={onCompleted}
       onError={onError}>
-      {(mutate, { loading, error }) => (
-        children({ mutate, loading, error })
+      {(mutate, { data, loading, error }) => (
+        children({ mutate, data, loading, error })
       )}
     </Mutation>
   )

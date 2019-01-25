@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import { AuthContext } from '../AuthProvider';
-import './login.css';
 
 const Login = () => {
 
