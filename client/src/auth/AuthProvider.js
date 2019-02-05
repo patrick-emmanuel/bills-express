@@ -81,7 +81,7 @@ const AuthProvider = ({
     if (verifyUser.data && verifyUser.data.verifyUser) {
       setMe(verifyUser.data.verifyUser)
     }
-    const userToken = login.data ? login.data.signIn.token : token
+    const userToken = (login.data && login.data.signIn) ? login.data.signIn.token : token
     if (userToken && !me) {
       verifyUser.mutate({ variables: { token: userToken } });
     }

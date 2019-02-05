@@ -65,4 +65,6 @@
   html{
     font-family: 'Lato', Arial, sans-serif;
   }
- 
+  .bg-gradient-teal {
+    background-image: linear-gradient(to top right, config('colors.teal-light'), config('colors.teal-dark'));
+  }

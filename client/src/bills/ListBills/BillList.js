@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BillItem from './BillItem';
 import { Mutation } from "react-apollo";
 
-import { PAY_BILL } from '../queries';
-import emptyImage from '../../icons/box.png';
+import { PAY_BILL } from '../mutations';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default ({ bills }) => {
   if (bills.length > 0) {
     return (
-      <div className="flex justify-center flex-col mt-6">
+      <div className="flex justify-center flex-col mt-4">
         {bills.map(bill => (
           <BillItemView key={bill.id} bill={bill} />
         ))}
@@ -17,8 +17,8 @@ export default ({ bills }) => {
   } else {
     return (
       <div className="flex items-center justify-center flex-col">
-        <h3 className="mt-10">Empty. Create bills to see them here.</h3>
-        <img className="mt-4" src={emptyImage} alt="not found" />
+        <h3 className="mt-10 text-grey mb-5">Empty. Create bills to see them here.</h3>
+        <FontAwesomeIcon icon="box-open" color="grey" size="6x" className="text-grey" />
       </div>
     )
   }
@@ -26,23 +26,17 @@ export default ({ bills }) => {
 
 const BillItemView = ({ bill }) => {
 
-  const [isBillPaid, setIsBillPaid] = useState(bill.paid);
-
-  const billPaidCompleted = (data) => {
-    setIsBillPaid(data.payBill.paid)
-  }
-
+  const { id } = bill;
   return (
-    <Mutation key={bill.id}
+    <Mutation
+      key={id}
       mutation={PAY_BILL}
-      variables={{ id: bill.id }}
-      onCompleted={billPaidCompleted}>
+      variables={{ id }}>
       {(payBill, { loading }) => {
         return (
           <BillItem
             key={bill.id}
             bill={bill}
-            isBillPaid={isBillPaid}
             billPaidLoading={loading}
             handlePayClick={(id) => {
               payBill({

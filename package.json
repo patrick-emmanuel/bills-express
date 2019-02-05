@@ -8,12 +8,13 @@
   },
   "scripts": {
     "start": "nodemon --exec babel-node server/index.js",
+    "client": "npm start --prefix client",
     "test:run-server": "TEST_DATABASE=mytestdatabase npm start",
     "test:execute-test": "mocha --require @babel/register 'server/**/*.spec.js'",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
-  "author": "Robin Wieruch <hello@rwieruch.com> (https://www.robinwieruch.de)",
+  "author": "Patrick Emmanuel",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.6",

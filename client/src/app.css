@@ -6272,6 +6272,11 @@ html {
   font-family: 'Lato', Arial, sans-serif;
 }
 
+.bg-gradient-teal {
+  background-image: -webkit-linear-gradient(bottom left, #64d5ca, #38a89d);
+  background-image: linear-gradient(to top right, #64d5ca, #38a89d);
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

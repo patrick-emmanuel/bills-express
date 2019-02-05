@@ -54,11 +54,4 @@ export const GET_BILLS_GROUP_BY_PAID = gql`
   }
 `;
 
-export const PAY_BILL = gql`
-  mutation payBill($id: ID!){
-    payBill(id: $id){
-      paid
-    }
-  }
-`;
 

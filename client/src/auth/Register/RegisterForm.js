@@ -36,7 +36,7 @@ const RegisterForm = ({ register, loading }) => {
             <input type="password" name="password" {...password} className="appearance-none border rounded w-full py-4 px-4 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" />
           </div>
           <div className="my-12">
-            <button disabled={loading} className="w-full bg-teal-dark hover:bg-teal-darker text-white font-bold py-5 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
+            <button disabled={loading} className="w-full bg-gradient-teal hover:bg-teal-darker text-white font-bold py-5 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
           </div>
         </form>
       </div>

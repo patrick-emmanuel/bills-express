@@ -2,6 +2,7 @@ import React from 'react';
 import { Mutation } from "react-apollo";
 import CreateBillForm from './createBillForm';
 import { CREATE_BILL } from '../mutations';
+import { GET_PAGINATED_BILLS } from '../queries';
 
 const CreateBill = ({ history }) => {
 
@@ -17,16 +18,30 @@ const CreateBill = ({ history }) => {
     history.push(`/bills/${id}`);
   }
 
+  const updateBillsCache = (cache, { data: { createBill } }) => {
+    const { bills: { edges } } = cache.readQuery({ query: GET_PAGINATED_BILLS });
+    cache.writeQuery({
+      query: GET_PAGINATED_BILLS,
+      data: {
+        bills: {
+          edges: [createBill].concat(edges)
+        }
+      },
+    });
+  }
+
   return (
     <Mutation
       mutation={CREATE_BILL}
+      update={updateBillsCache}
       onCompleted={onCompleted}
       onError={onError}>
-      {(createBill, { data, loading }) => {
+      {(createBill, { loading }) => {
         return (
           <CreateBillForm
             createBill={createBill}
-            loading={loading} />
+            loading={loading}
+          />
         );
       }}
     </Mutation>
