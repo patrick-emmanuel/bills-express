@@ -5,6 +5,7 @@ import http from 'http';
 import jwt from 'jsonwebtoken';
 import DataLoader from 'dataloader';
 import express from 'express';
+import path from 'path';
 import {
   ApolloServer,
   AuthenticationError,
@@ -82,11 +83,24 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app, path: '/graphql' });
 
+const isProduction = process.env.NODE_ENV === 'production'
+if (isProduction) {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = '../client/build/index.html'));
+  })
+}
+
 const httpServer = http.createServer(app);
 server.installSubscriptionHandlers(httpServer);
 
 const port = process.env.PORT || 8000;
 
-httpServer.listen({ port }, () => {
-  console.log(`Apollo Server on http://localhost:${port}/graphql`);
+models.sequelize.sync({ force: isProduction }).then(async () => {
+
+  httpServer.listen({ port }, () => {
+    console.log(`Apollo Server on http://localhost:${port}/graphql`);
+  });
 });
+

@@ -11,7 +11,8 @@
     "client": "npm start --prefix client",
     "test:run-server": "TEST_DATABASE=mytestdatabase npm start",
     "test:execute-test": "mocha --require @babel/register 'server/**/*.spec.js'",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "keywords": [],
   "author": "Patrick Emmanuel",
