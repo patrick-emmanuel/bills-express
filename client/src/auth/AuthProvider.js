@@ -44,7 +44,7 @@ const AuthProviderOperations = ({ children, history }) => {
   return (
     <LoginProvider onCompleted={onCompleted} onError={onError}>
       {login => (
-        <RegisterProvider onRegisterCompleted={onCompleted} onError={onError}>
+        <RegisterProvider onCompleted={onCompleted} onError={onError}>
           {register => (
             <VerifyTokenProvider onError={onError}>
               {verifyUser => (

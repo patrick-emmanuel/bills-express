@@ -21,7 +21,7 @@ const LoginForm = ({ login, loading }) => {
 
   return (
     <section className="flex justify-center items-center">
-      <div className="hidden md:block w-2/3">
+      <div className="hidden bg-grey-lighter h-screen md:block w-2/3">
         <img src={dataIllustration} alt="financial illustration" />
       </div>
       <div className="w-full sm:w-5/2 md:w-1/3 bg-white px-5 md:mx-12 md:px-4 pt-6 mt-10">
@@ -43,8 +43,8 @@ const LoginForm = ({ login, loading }) => {
           <div className="mt-12">
             <button disabled={loading} className="w-full bg-gradient-teal hover:bg-teal-darker text-white font-bold py-5 px-4 rounded focus:outline-none focus:shadow-outline">{loading ? 'Loggin in...' : 'Login'}</button>
           </div>
-          <div className="flex flex-col items-center justify-center pt-6 pb-12">
-            <p className="pb-2">or</p>
+          <div className="flex items-center justify-center pt-6 pb-12">
+            <p className="pr-3">or</p>
             <Link to="/register" className="no-underline">Register</Link>
           </div>
         </form>
