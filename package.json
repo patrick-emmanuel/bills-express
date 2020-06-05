@@ -31,7 +31,7 @@
   "dependencies": {
     "apollo-link-ws": "^1.0.12",
     "apollo-server": "^2.2.3",
-    "apollo-server-express": "^2.2.3",
+    "apollo-server-express": "^2.14.2",
     "bcrypt": "^3.0.2",
     "cors": "^2.8.5",
     "dataloader": "^1.4.0",
